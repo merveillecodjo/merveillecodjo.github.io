@@ -1,0 +1,311 @@
+/* ===========================
+   RESET AND BASE CONFIGURATION
+   =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* ===========================
+   MAIN CONTAINER
+   =========================== */
+.container {
+    text-align: center;
+    max-width: 700px;
+    width: 100%;
+    background: linear-gradient(145deg, #1e1e1e, #252525);
+    border-radius: 20px;
+    box-shadow: 
+        0 10px 40px rgba(0, 0, 0, 0.8),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+    animation: fadeIn 0.8s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
+   COVER PHOTO
+   =========================== */
+.cover-photo {
+    width: 100%;
+    height: 250px;
+    background: linear-gradient(135deg, #000000 0%, #1a1a1a 25%, #2d2d2d 50%, #1a1a1a 75%, #000000 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Subtle pattern effect on cover */
+.cover-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        repeating-linear-gradient(
+            45deg,
+            transparent,
+            transparent 35px,
+            rgba(255, 255, 255, 0.02) 35px,
+            rgba(255, 255, 255, 0.02) 70px
+        );
+}
+
+/* Subtle light effect at the top */
+.cover-photo::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+
+/* ===========================
+   PROFILE PHOTO SECTION
+   =========================== */
+.profile-section {
+    position: relative;
+    margin-top: -80px;
+    padding-bottom: 20px;
+}
+
+.profile-photo {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center top;
+    border: 5px solid #1e1e1e;
+    box-shadow: 
+        0 5px 25px rgba(0, 0, 0, 0.8),
+        0 0 0 2px rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #2d2d2d;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 8px 30px rgba(0, 0, 0, 0.9),
+        0 0 0 2px rgba(255, 255, 255, 0.2);
+}
+
+/* ===========================
+   MAIN CONTENT
+   =========================== */
+.content {
+    padding: 20px 40px 40px;
+}
+
+h1 {
+    font-size: 2.2em;
+    margin: 15px 0 10px;
+    color: #ffffff;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.subtitle {
+    color: #a0a0a0;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* ===========================
+   BIOGRAPHY
+   =========================== */
+.bio {
+    text-align: justify;
+    line-height: 1.8;
+    margin: 20px 0;
+    color: #c0c0c0;
+    font-size: 1.05em;
+}
+
+.bio-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    border-left: 3px solid #404040;
+    transition: all 0.3s ease;
+}
+
+.bio-section:hover {
+    background: rgba(255, 255, 255, 0.04);
+    border-left-color: #606060;
+    transform: translateX(5px);
+}
+
+/* ===========================
+   SOCIAL LINKS
+   =========================== */
+.links {
+    margin: 30px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.links a {
+    text-decoration: none;
+    color: #ffffff;
+    background: linear-gradient(145deg, #2d2d2d, #1a1a1a);
+    padding: 12px 24px;
+    border-radius: 25px;
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    font-weight: 600;
+    font-size: 0.95em;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* Shine effect on hover */
+.links a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.5s ease;
+}
+
+.links a:hover::before {
+    left: 100%;
+}
+
+.links a:hover {
+    background: linear-gradient(145deg, #3d3d3d, #2a2a2a);
+    transform: translateY(-3px);
+    box-shadow: 
+        0 6px 20px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.links a::after {
+    content: '→';
+    font-weight: bold;
+    transition: transform 0.3s ease;
+    margin-left: 5px;
+}
+
+.links a:hover::after {
+    transform: translateX(3px);
+}
+
+/* ===========================
+   FOOTER
+   =========================== */
+footer {
+    padding: 20px;
+    background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.3));
+    color: #808080;
+    font-size: 0.9em;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
+@media (max-width: 600px) {
+    .content {
+        padding: 20px 25px 30px;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .subtitle {
+        font-size: 1em;
+    }
+
+    .profile-photo {
+        width: 140px;
+        height: 140px;
+    }
+
+    .cover-photo {
+        height: 200px;
+    }
+
+    .profile-section {
+        margin-top: -70px;
+    }
+
+    .links {
+        gap: 10px;
+    }
+
+    .links a {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .bio {
+        font-size: 1em;
+    }
+
+    .bio-section {
+        padding: 12px;
+    }
+}
+
+@media (max-width: 400px) {
+    .container {
+        border-radius: 15px;
+    }
+
+    .content {
+        padding: 15px 20px 25px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+
+    .profile-photo {
+        width: 120px;
+        height: 120px;
+    }
+}
